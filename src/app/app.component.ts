@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'platzi';
   items = ['nicolas', 'Arturo', 'Karen'];
   name: string;
+  power = 10;
 
   products: IProduct[] = [
     {
@@ -55,12 +56,16 @@ export class AppComponent {
       description: 'bla bla bla bla bla'
     },
   ];
-  addName(name: string){
+  addName(name: string): void{
     this.items.push(name);
   }
 
-  deleteName(index: number){
+  deleteName(index: number): void{
     this.items.splice(index, 1);
   }
- 
+
+  clickProduct(id: number): void {
+    console.log('product');
+    console.log(id);
+  }
 }

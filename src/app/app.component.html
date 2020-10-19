@@ -2,6 +2,14 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <input type="text" [(ngModel)]="power">
+  {{ power | exponential }}
+<div class ="product-grid"  >
+    <app-product *ngFor="let product of products"
+                  (productClicked)="clickProduct($event)" 
+                  [product] = "product"></app-product>
+</div>
+
 
   <input type="text" placeholder="Name" [(ngModel)]="name" />
   <button (click)="addName(name)">Add Name</button>
@@ -18,11 +26,7 @@
     <p>Names array is empty</p>
   </ng-template>
 
-  <div *ngFor="let product of products">
-    <h3>{{ product.title }}</h3>
-    <img [src]="product.image" alt="Product Image" width="200">
-    <p>{{ product.price }}</p>
-  </div>
+
 
   <div [ngSwitch]="name">
     <p *ngSwitchCase="'nicolas'">Este es nicolas</p>
@@ -31,4 +35,4 @@
     <p *ngSwitchCase="'arturo'">Este es arturo</p>
     <p *ngSwitchDefault>No hay match</p>
   </div>
-</div>
+
